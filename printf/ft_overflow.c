@@ -17,8 +17,3 @@ int ft_overflow(char *s)
     }
     return 1;
 }
-
-// int main()
-// {
-// 	printf("the return is: %s\n", ft_check_overflow("hello %#+++- -000++++39085679503454.4512424165487d\n") ? "pass" : "block");
-// }

@@ -22,8 +22,6 @@ int ft_struct(char **str, t_flag *params)
 		params->precision_exist = true;
 		(*str)++;
 		params->precision_flag = ft_atoi(str);
-		// if (!params->precision_flag)
-		// 	params->precision_flag = -1;
 	}
     return 0;
 }

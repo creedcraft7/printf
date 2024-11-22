@@ -6,7 +6,7 @@
 /*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 03:48:13 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/20 18:37:54 by mtaleb           ###   ########.fr       */
+/*   Updated: 2024/11/21 21:34:06 by mtaleb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ char *ft_format(const char *format, va_list args,  t_flag *params)
 	char *ptr;
 	ptr = 0;
 	// csuxXdip
-	// 123456789
-	//ft_strdup((char []){(char)va_arg(args, int)});
+	// 12345678
 	if (++(params->specifier) && format[0]  == 's')
 		ptr = ft_precision(params, ft_strdup(va_arg(args, char *)));	
 	else if (++(params->specifier) && format[0] == 'u')

@@ -6,7 +6,7 @@
 /*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 00:53:02 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/20 17:59:16 by mtaleb           ###   ########.fr       */
+/*   Updated: 2024/11/21 21:38:04 by mtaleb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char *ft_unsigned_itoa(unsigned int n)
 	int			len;
 	long int	nb;
 
-	nb = (unsigned long int)n;
+	nb = (unsigned long)n;
 	len = num_len(nb);
 	res = malloc(len * sizeof(char) + 1);
 	if (!res)
@@ -52,9 +52,3 @@ char *ft_unsigned_itoa(unsigned int n)
 	}
 	return (res);
 }
-// int main()
-// {
-// 	char *ptr = ft_unsigned_itoa(42);
-// 	printf("%s\n", ptr);
-// 	printf("%u\n", 0);
-// }

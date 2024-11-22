@@ -33,7 +33,6 @@ typedef struct flags {
 
 char	*ft_format(const char *format, va_list args, t_flag *params);
 char	*ft_hexa(unsigned int n, char *base, t_flag *params);
-// char	*ft_HEXA(unsigned int n, char *base, t_flag *params);
 char	*ft_append(char *org, char c, int position);
 char	*ft_precision(t_flag *flag, char *str);
 char	*ft_flags(char *ptr, t_flag *params);
@@ -43,18 +42,18 @@ char	*ft_printmemory(void *addr);
 char	*ft_strdup(const char *s);
 char	*ft_null(t_flag *params);
 char	*ft_itoa(int n);
-int ft_char(int c, int width, bool minus);
+
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_init_flags(t_flag *flag);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 
-
+int		ft_char(int c, int width, bool minus);
 int		ft_width(char *ptr, t_flag *params);
 int		ft_struct(char **str, t_flag *flag);
 int 	ft_printf(const char *, ...);

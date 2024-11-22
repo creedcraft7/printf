@@ -15,11 +15,3 @@ char *ft_hexa(unsigned int n, char *base, t_flag *params)
 		params->hashtag = false;
 	return result;
 }
-// int main()
-// {
-// 	unsigned char *ptr;
-// 	t_flag params;
-// 	printf("%s\n",ft_hexa(912314, "0123456789abcdef", &params));
-// 	printf("%x\n", 912314);
-// }
-

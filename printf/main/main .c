@@ -1,27 +1,3 @@
-// int i = 0;
-	// int j = 0;
-	// size_t len;
-	// if (ptr[0] == '\0')
-	// 	len = 1;
-   	// else 
-	// 	len = ft_strlen(ptr);
-    // char *str = calloc(len + 2, sizeof(char));
-    // if (!str)
-    //     return NULL;
-    // if (ptr[0] != ' ' )
-	// {
-	// 	printf("\n\nkjqsadl.kasj\n\n");
-    //     str[j++] = ' ';
-	// }
-    // while (ptr[i]) 
-    //     str[j++] = ptr[i++];
-    // str[j] = '\0';
-    // free(ptr);
-    // return str;
-
-
-
-
 int main()
 // {
 //     // Test Case 1: Basic Specifiers

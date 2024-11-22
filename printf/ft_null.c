@@ -9,6 +9,5 @@ char *ft_null(t_flag *params)
 		return (ft_strdup("(null)"));
 	if (params->specifier == 8)
 		return (ft_strdup("(nil)"));
-	// return (ft_strdup(" "));
-	return NULL;
+	return (NULL);
 }
