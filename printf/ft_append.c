@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-
+// sqsaks;LŚL
 char *ft_append(char *org, char c, int position)
 {
 	char *result;
