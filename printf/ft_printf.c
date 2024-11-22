@@ -10,7 +10,7 @@ static int ft_parse_format(const char **s, va_list args, t_flag *params)
     ft_struct((char **)s, params);
 	if(**s =='c')
 	{
-		res = ft_char(va_arg(args, int), params->width, params->minus_flag);
+		res = ft_char(va_arg(args, int), params->width, params->minus);
 		return (res);
 	}
     temp = ft_format(*s, args, params);

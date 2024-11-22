@@ -6,7 +6,7 @@
 /*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 20:08:06 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/20 19:53:41 by mtaleb           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:13:34 by mtaleb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	num_len(long int nb)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n, t_flag *params)
 {
 	char		*res;
 	int			len;
@@ -47,7 +47,7 @@ char	*ft_itoa(int n)
 		res[0] = '0';
 	else if (nb < 0)
 	{
-		res[0] = '-';
+		params->negative = true;
 		nb = -nb;
 	}
 	while (nb)

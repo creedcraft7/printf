@@ -6,7 +6,7 @@
 /*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 19:56:22 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/21 21:41:26 by mtaleb           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:19:45 by mtaleb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ int ft_width(char *ptr, t_flag *params)
 	}
 	len = ft_strlen(ptr);
     c = ' ';
-    if(params->zero_flag && !params->minus_flag && params->specifier > 1)
+    if(params->zero && !params->minus && params->specifier > 1)
     c = '0';
    	if(params->width > len)
 	{ 
-			if (params->minus_flag == false)
+			if (params->minus == false)
         		count = print_ShiftRight(ptr, params, c);
     		else
         		count = print_ShiftLeft(ptr, params, c);

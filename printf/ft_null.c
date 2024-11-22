@@ -2,8 +2,8 @@
 
 char *ft_null(t_flag *params)
 {
-	params->zero_flag = false;
-	if (params->specifier == 2 && params->precision_flag < 6 && params->precision_flag)
+	params->zero = false;
+	if (params->specifier == 2 && params->precision< 6 && params->precision)
 	 return (ft_strdup(""));
 	if (params->specifier == 2)
 		return (ft_strdup("(null)"));

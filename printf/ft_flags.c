@@ -6,7 +6,7 @@
 /*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 19:49:57 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/21 21:33:54 by mtaleb           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:18:11 by mtaleb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ char *ft_flags(char *ptr, t_flag *params)
 {
 	if(!ptr)
 		return NULL;
-    if (params->plus_flag && ptr[0] != '-' && params->specifier > 5)
+    if (params->plus && ptr[0] != '-' && params->specifier > 5)
 	{
         return PlusFlag(ptr);
 	}
-    if (params->space_flag && ptr[0] != '-' && !params->plus_flag && params->specifier > 5)
+    if (params->space && ptr[0] != '-' && !params->plus && params->specifier > 5)
 	{
         return SpaceFlag(ptr);
 	}

@@ -6,7 +6,7 @@
 /*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 03:48:13 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/21 21:34:06 by mtaleb           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:14:56 by mtaleb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ char *ft_format(const char *format, va_list args,  t_flag *params)
 	else if (++(params->specifier) && format[0]  == 'X')
 		ptr = ft_precision(params, ft_hexa(va_arg(args, unsigned int), "0123456789ABCDEF", params));	
 	else if(++(params->specifier) && format[0]  == 'd')
-		ptr = ft_precision(params, ft_itoa(va_arg(args, int)));
+		ptr = ft_precision(params, ft_itoa(va_arg(args, int), params));
 	else if(++(params->specifier) && format[0]  == 'i')
-		ptr = ft_precision(params, ft_itoa(va_arg(args, int)));
+		ptr = ft_precision(params, ft_itoa(va_arg(args, int), params));
 	else if (++(params->specifier) && format[0]  == 'p')
 		ptr = ft_precision(params, ft_printmemory(va_arg(args, void *)));
 	else if (format[0] == '%')

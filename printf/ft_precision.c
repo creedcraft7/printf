@@ -30,11 +30,11 @@ char *ft_precision(t_flag *params, char *str)
 		return NULL;
     len = strlen(str); 
     result = str;
-    digits = params->precision_flag;
+    digits = params->precision;
 
     if (digits || params->precision_exist)
     {
-        params->zero_flag = false;
+        params->zero = false;
         if ((digits > len || (str[0] == '-' && digits > len - 1)) && params->specifier > 2){
 			return (precision_2(digits, str));
 		}

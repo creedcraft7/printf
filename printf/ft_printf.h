@@ -15,15 +15,16 @@
 //  csuxXdip
 // 012345678
 typedef struct flags {
-    bool zero_flag;
-    bool minus_flag;
-    bool plus_flag;
-    int precision_flag;
+    bool zero;
+    bool minus;
+    bool plus;
+    int precision;
     int width;
-    bool space_flag;
+    bool space;
 	bool hashtag;
 	int specifier;
 	bool precision_exist;
+	bool negative;
 } t_flag;
 
 
@@ -41,7 +42,7 @@ char	*ft_unsigned_itoa(unsigned int n);
 char	*ft_printmemory(void *addr);
 char	*ft_strdup(const char *s);
 char	*ft_null(t_flag *params);
-char	*ft_itoa(int n);
+char	*ft_itoa(int n, t_flag *params);
 
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
