@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kel-mous <kel-mous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 20:08:06 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/22 14:13:34 by mtaleb           ###   ########.fr       */
+/*   Created: 2024/11/23 14:56:42 by kel-mous          #+#    #+#             */
+/*   Updated: 2024/11/23 14:57:00 by kel-mous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ static int	num_len(long int nb)
 	int	i;
 
 	i = 0;
-	if (nb <= 0)
+	if (nb == 0)
 	{
 		i++;
+	}
+	if (nb < 0)
+	{
 		nb = -nb;
 	}
 	while (nb)

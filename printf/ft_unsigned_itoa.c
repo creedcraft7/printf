@@ -3,24 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsigned_itoa.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kel-mous <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 00:53:02 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/21 21:38:04 by mtaleb           ###   ########.fr       */
+/*   Created: 2024/11/23 15:43:05 by kel-mous          #+#    #+#             */
+/*   Updated: 2024/11/23 15:43:10 by kel-mous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-
 #include "ft_printf.h"
-
 
 static int	num_len(unsigned long int nb)
 {
 	int	i;
 
 	i = 0;
-	if(nb == 0)
+	if (nb == 0)
 		i++;
 	while (nb)
 	{
@@ -30,7 +26,7 @@ static int	num_len(unsigned long int nb)
 	return (i);
 }
 
-char *ft_unsigned_itoa(unsigned int n)
+char	*ft_unsigned_itoa(unsigned int n)
 {
 	char		*res;
 	int			len;

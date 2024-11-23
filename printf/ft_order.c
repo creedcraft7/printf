@@ -1,25 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_order.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kel-mous <kel-mous@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/23 15:01:34 by kel-mous          #+#    #+#             */
+/*   Updated: 2024/11/23 15:58:17 by kel-mous         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ft_printf.h"
 
-static int	in_set(char c, char const *set)
+int	ft_order(char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return ((1));
-		i++;
-	}
-	return ((0));
-}
-
-int ft_order(char *s) //#+10.5d
-{
-	size_t i; 
-	
-	i = 0;
-	while (s[i] == '-' || s[i] == '+' || s[i] == ' ' || s[i] == '#' || s[i] == '0')
+	while (in_set(s[i], "-+#0 "))
 		i++;
 	while (isdigit(s[i]))
 		i++;
@@ -27,12 +24,7 @@ int ft_order(char *s) //#+10.5d
 		i++;
 	while (isdigit(s[i]))
 		i++;
-	if(in_set(s[i], "%cspdiuxX"))
-		return 1;
-	return 0;
+	if (in_set(s[i], "%cspdiuxX"))
+		return (1);
+	return (0);
 }
-
-// int main()
-// {
-// 	printf("the modifiers are %s\n", order("#+++    -  ++++ 0000075.8976d") ? "true" : "false");
-// }

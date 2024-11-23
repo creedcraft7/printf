@@ -3,96 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaleb <mtaleb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kel-mous <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 19:49:57 by mtaleb            #+#    #+#             */
-/*   Updated: 2024/11/22 14:18:11 by mtaleb           ###   ########.fr       */
+/*   Created: 2024/11/23 14:34:05 by kel-mous          #+#    #+#             */
+/*   Updated: 2024/11/23 14:34:10 by kel-mous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 
-char *PlusFlag(char *ptr)
+char	*ft_flags(char *ptr, t_flag *params)
 {
-    int i;
-	int j;
-	char *str;
-	size_t len;
-	
-	len = ft_strlen(ptr);
-	str = ft_calloc(len + 2, sizeof(char));
-		if(!str)
-			return NULL; 
-	j = 0;
-	i = 0;
-    if (ptr[0] != '+')
-        str[j++] = '+';
-    while (ptr[i])
-	{ 
-    	str[j++] = ptr[i++];
-	}
-	str[j] = 0;
-	free (ptr);
-    return str;
-}
-
-char *SpaceFlag(char *ptr)
-{
-    int i = 0, j = 0;
-    size_t len = ft_strlen(ptr);
-	if (len == 0)
-		return ptr;
-    char *str = ft_calloc(len + 2, sizeof(char));
-    if (!str)
-        return NULL;
-    if (ptr[0] != ' ')
-        str[j++] = ' ';
-    while (ptr[i]) 
-        str[j++] = ptr[i++];
-    str[j] = '\0';
-    free(ptr);
-    return str;
-}
-char *HashtagFlag(char *ptr, t_flag *params) 
-{
-    int i;
-	int j;
-	char *str;
-	size_t len;
-	
-	len = ft_strlen(ptr);
-	str = ft_calloc(len + 3, sizeof(char));
-		if(!str)
-			return NULL; 
-	i = 0;
-	j = 0;
-    str[j++] = '0';
-	if (params->specifier == 5)
-		str[j++] = 'X';
-	else
-    	str[j++] = 'x';
-    while (ptr[i]) 
-    	str[j++] = ptr[i++];
-    str[j] = '\0';
-	free (ptr);
-    return str;
-}
-
-char *ft_flags(char *ptr, t_flag *params)
-{
-	if(!ptr)
-		return NULL;
-    if (params->plus && ptr[0] != '-' && params->specifier > 5)
+	if (!ptr)
+		return (NULL);
+	if (params->negative == true)
+		ptr = ft_append(ptr, '-', 0);
+	if (params->plus && !params->negative
+		&& params->specifier > 5 && ptr[0] != '+')
 	{
-        return PlusFlag(ptr);
+		return (ft_append(ptr, '+', 0));
 	}
-    if (params->space && ptr[0] != '-' && !params->plus && params->specifier > 5)
+	if (params->space && !params->negative && !params->plus
+		&& params->specifier > 5 && ptr[0] != ' ')
 	{
-        return SpaceFlag(ptr);
+		return (ft_append(ptr, ' ', 0));
 	}
-    if (params->hashtag && (params->specifier == 4 || params->specifier == 5))
+	if (params->hashtag && params->specifier == 4)
 	{
-        return HashtagFlag(ptr, params);
+		ptr = ft_append(ptr, '0', 0);
+		return (ft_append(ptr, 'x', 1));
 	}
-    return ptr;
+	if (params->hashtag && params->specifier == 5)
+	{
+		ptr = ft_append(ptr, '0', 0);
+		return (ft_append(ptr, 'X', 1));
+	}
+	return (ptr);
 }
