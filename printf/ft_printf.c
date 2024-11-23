@@ -6,7 +6,7 @@
 /*   By: kel-mous <kel-mous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 15:28:31 by kel-mous          #+#    #+#             */
-/*   Updated: 2024/11/23 15:29:57 by kel-mous         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:20:48 by kel-mous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -36,7 +36,7 @@ int	ft_printf(const char *s, ...)
 	t_flag	params;
 	int		result;
 
-	if (!ft_overflow((char *)s))
+	if (!s || !ft_overflow((char *)s))
 		return (-1);
 	result = 0;
 	va_start(args, s);
