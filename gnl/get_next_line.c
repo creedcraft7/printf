@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <strings.h>
-#include <string.h>
-#include <stdlib.h>
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 int count = 0;
 
@@ -101,7 +95,7 @@ char *compute(char **str, int fd)
         {
             if (((*str)[0] != 0))
                 return *str;
-            return NULL;
+            return (free(buff), NULL);
         }
         *str = ft_strjoin(*str, buff);
         if(ft_strchr(*str, '\n', &len) > 0)
@@ -114,47 +108,40 @@ char *get_next_line(int fd)
     static char *result[1024] = {0};
     char *str;
     if (fd < 0 || fd > 1024)
-        return NULL;
-    if (result[5] == 0)
     {
-        result[5] = calloc(BUFFER_SIZE + 1, sizeof(char));
-        read(fd, result[5], BUFFER_SIZE);
-    }
-    str = compute(&result[5], fd);
-    if (str == 0)
+        // printf("in if\n");
         return NULL;
+    }  
+    if (result[fd] == 0)
+    {
+        result[fd] = calloc(BUFFER_SIZE + 1, sizeof(char));
+        if(read(fd, result[fd], BUFFER_SIZE) < 1)
+        {
+            free(result[fd]);
+            result[fd] = NULL;
+            return NULL;
+        }
+    }
+    str = compute(&result[fd], fd);
+    if (str == 0)
+    {
+        if(result[fd] != NULL)
+        {
+            free(result[fd]);
+            result[fd] = NULL;
+        }
+        return NULL;
+    }
     return str;
 }
 
-int main()
-{
-    // int len = 0;
-    // printf("strchr returned: %d\n", ft_strchr("helloniggaworld", 'w', &len));
-    // char *str = ft_strdup("khalid", 1, 3);
-    // printf("strdup returned: %s\n", str);
-    // print("ayoooo\n");
-    // test split
-    // char *str = strdup("khalidwa3r");
-    // char *result = ft_split(&str, 4);
-    // printf("str is: %s\n", str);
-    // printf("result is: %s\n", result);
-    int fd = open("test.txt", O_RDONLY);
-    char *str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-    str = get_next_line(fd);
-    printf("the return is: %s\n", str);
-}
+// # define CON 6
+
+// int main()
+// {
+//     int fd = open("empty", O_RDONLY);
+//     char arr[CON + 1] = {0};
+//     fd = 1000;
+//     printf("read returned %ld, the string is: %s and fd is: %d and \n", read(fd, arr, CON), arr, fd);
+//     printf("the str is: %s and fd is: %d\n", get_next_line(fd), fd);
+// }
