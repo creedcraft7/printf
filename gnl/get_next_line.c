@@ -85,8 +85,11 @@ char *ft_split(char **str, int position)
 char *compute(char **str, int fd)
 {
     int len = 0;
+    
     if (ft_strchr(*str, '\n', &len) > 0)
+    {
         return (ft_split(str, len));
+    }
     char *buff;
     while (1)
     {
@@ -97,9 +100,17 @@ char *compute(char **str, int fd)
                 return *str;
             return (free(buff), NULL);
         }
+        printf("the address is: %p\n", *str);
         *str = ft_strjoin(*str, buff);
+        printf("the address is: %p\n", *str);
+        //printf("str is: %s\n", *str);
         if(ft_strchr(*str, '\n', &len) > 0)
+        {
+            
+            //printf("ayoooooooo!!!");
             return (ft_split(str, len));
+        }
+            
     }
 }
 
@@ -122,6 +133,7 @@ char *get_next_line(int fd)
             return NULL;
         }
     }
+
     str = compute(&result[fd], fd);
     if (str == 0)
     {
@@ -135,13 +147,14 @@ char *get_next_line(int fd)
     return str;
 }
 
-// # define CON 6
+# define CON 60
 
-// int main()
-// {
-//     int fd = open("empty", O_RDONLY);
-//     char arr[CON + 1] = {0};
-//     fd = 1000;
-//     printf("read returned %ld, the string is: %s and fd is: %d and \n", read(fd, arr, CON), arr, fd);
-//     printf("the str is: %s and fd is: %d\n", get_next_line(fd), fd);
-// }
+int main()
+{
+    int fd = open("41_no_nl", O_RDONLY);
+    // char arr[CON + 1] = {0};
+    //printf("read returned %ld, the string is: %s and fd is: %d and \n", read(fd, arr, CON), arr, fd);
+    close(fd);
+    fd = open("41_no_nl", O_RDONLY);
+    printf("the str is: %s and fd is: %d\n", get_next_line(fd), fd);
+}
